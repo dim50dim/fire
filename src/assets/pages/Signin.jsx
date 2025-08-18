@@ -1,6 +1,11 @@
 import React from 'react'
+import { UserAuth } from '../../context/AuthContext'
 import {GoogleButton} from "react-google-button"
+
+
 const Signin = () => {
+
+    
   return (
     <div>
           <h1 className='text-center text-3xl font-bold py-8'> Sign in</h1>
