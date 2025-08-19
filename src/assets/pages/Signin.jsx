@@ -1,15 +1,17 @@
 import React from 'react'
 import { UserAuth } from '../../context/AuthContext'
 import {GoogleButton} from "react-google-button"
-
+import { useNavigate } from 'react-router-dom'
 
 const Signin = () => {
+    const navigate =  useNavigate();
 
      const {googleSignIn} = UserAuth()
 
        const handleGoogleSignIn = async () => {
         try {
-            await googleSignIn()
+            await googleSignIn();
+            navigate('/account')
         } catch (error) {
             console.log(error);
             
