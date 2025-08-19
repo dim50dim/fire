@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { UserAuth } from '../../context/AuthContext'
 import {GoogleButton} from "react-google-button"
 import { useNavigate } from 'react-router-dom'
@@ -6,18 +6,22 @@ import { useNavigate } from 'react-router-dom'
 const Signin = () => {
     const navigate =  useNavigate();
 
-     const {googleSignIn} = UserAuth()
+     const {googleSignIn,user} = UserAuth()
 
        const handleGoogleSignIn = async () => {
         try {
             await googleSignIn();
-            navigate('/account')
+        
         } catch (error) {
             console.log(error);
             
         }
        }
-
+ useEffect(() => {
+     if(user != null) {
+      navigate('/account')
+     }
+ },[])
   return (
     <div>
           <h1 className='text-center text-3xl font-bold py-8'> Sign in</h1>
