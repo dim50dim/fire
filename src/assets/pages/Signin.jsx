@@ -5,7 +5,7 @@ import {GoogleButton} from "react-google-button"
 
 const Signin = () => {
 
-     const {googleSignIn} = UserAuth;
+     const {googleSignIn} = UserAuth()
 
        const handleGoogleSignIn = async () => {
         try {
