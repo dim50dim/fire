@@ -13,11 +13,17 @@ export const AuthContextProvider =({children}) => {
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth,provider)
     }
+
+    
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth,(currentUser) => {
        setUser(currentUser)
+       console.log('User',currentUser);
+       
     });
-    return () => 
+    return () => {
+        unsubscribe()
+    }
   },[])
     return <AuthContext.Provider value={{googleSignIn}}>{children}</AuthContext.Provider>
 };
