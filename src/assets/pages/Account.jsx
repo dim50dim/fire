@@ -1,11 +1,12 @@
 import React from 'react'
 import { UserAuth } from '../../context/AuthContext';
+
 const Account = () => {
     const {logOut,user} = UserAuth();
   
-         const handleGoogleSignIn = async () => {
+         const handleSignOut = async () => {
           try {
-              await googleSignIn();
+              await logOut();
           
           } catch (error) {
               console.log(error);
@@ -18,7 +19,7 @@ const Account = () => {
     <div>
       <p>Welcome, who ever you are, {user?.displayName }</p>
     </div>
-    <button onClick={handleGoogleSignIn} className='border py-2 px-5 mt-10'>Logout</button>
+    <button onClick={handleSignOut} className='border py-2 px-5 mt-10'>Logout</button>
    
     </div>
 
