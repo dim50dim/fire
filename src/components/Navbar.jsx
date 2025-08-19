@@ -4,7 +4,7 @@ import { UserAuth } from "../context/AuthContext";
 
  function Navbar() {
   const {user,logOut} = UserAuth();
-  
+
   const handleSignOut = async() => {
   try {
      await logOut()
@@ -18,9 +18,12 @@ import { UserAuth } from "../context/AuthContext";
   return (
   <div className="flex justify-between bg-gray-200 w-full p-4">
       <h1 className="text-center text-2xl font-bold">
-              Firebase Google && Context
+              Firebase Google & Context
       </h1>
-        {user?.displayName ? <button onClick={handleSignOut}>Log out</button> : <Link to="/signin">Sign in</Link> }
+        {user?.displayName ? (
+          <button onClick={handleSignOut}>Log out</button> 
+          ): (
+          <Link to="/signin">Sign in</Link> )}
      
   </div>
   );
