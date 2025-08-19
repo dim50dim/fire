@@ -21,7 +21,7 @@ const Signin = () => {
      if(user != null) {
       navigate('/account')
      }
- },[])
+ },[user])
   return (
     <div>
           <h1 className='text-center text-3xl font-bold py-8'> Sign in</h1>
