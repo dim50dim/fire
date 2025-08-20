@@ -1,5 +1,5 @@
 import { GoogleAuthProvider,
-    signInWithPopup,
+
     signInWithRedirect,
     signOut,
     onAuthStateChanged } from 'firebase/auth';
